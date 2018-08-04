@@ -7,7 +7,10 @@ new Vue({
     currentRoute: window.location.pathname
   },
   render (h) {
-    return h(App)
+    return (<App currentRoute={this.currentRoute}/>)
+  },
+  created: function () {
+    console.log(this.currentRoute, 'hello')
   }
 }).$mount('#app')
 

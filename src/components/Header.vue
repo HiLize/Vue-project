@@ -1,12 +1,12 @@
 <template>
   <div id="header">
-    <a id="logo" href="/content" @click="go">
+    <a id="logo">
         <img src="../assets/logo.png" alt="vue logo" class="image">
         <span>Vue.js</span>
     </a>
     <ul id="nav">
-      <li>学习</li>
-      <li>生态系统</li>
+      <li><a @click="go('/content', $event)">学习</a></li>
+      <li @click="go('/', $event)">生态系统</li>
       <li>团队</li>
       <li>支持VUE</li>
       <li>多语言</li>
@@ -19,9 +19,9 @@
     export default {
         name: 'Header',
         methods: {
-            go (event) {
+            go (href, event) {
                 event.preventDefault()
-                this.$root.currentRoute = this.href
+                this.$root.currentRoute = href
                 window.history.pushState(
                     null,
                     routes[this.href],

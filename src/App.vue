@@ -1,9 +1,3 @@
-<template>
-  <div id="app">
-    {{this.ViewComponents.default}}
-  </div>
-</template>
-
 <script>
 import routes from './router/routes.js'
 import HelloWorld from './components/HelloWorld.vue'
@@ -14,9 +8,6 @@ export default {
   props: {
     currentRoute: String
   },
-  components: {
-    HelloWorld
-  },
   computed: {
     ViewComponents () {
       const matchingView = routes[this.currentRoute]
@@ -25,11 +16,25 @@ export default {
         : require('./components/HelloWorld.vue')
     }
   },
+  /*
+    render中的h就是creatElement的简写，所以是创建一个模板的意思，
+    <template>
+      <div id="app">
+        <slot></slot>
+      </div>
+    </template>
+    所以就不需要再开头写以上的标签了，写上反而不会显示render出来的标签
+  */
   render (h) {
-    return h(this.ViewComponents.default)
+    return h('div', {attrs: {
+      'id': 'app'
+    }},[h(this.ViewComponents.default)])
   },
   created: function () {
-    console.log('hello', this.ViewComponents.default)
+    console.log(this.currentRoute, this.ViewComponents)
+  },
+  updated () {
+    console.log('updated', this.currentRoute)
   }
 }
 
