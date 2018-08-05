@@ -8,9 +8,6 @@ new Vue({
   },
   render (h) {
     return (<App currentRoute={this.currentRoute}/>)
-  },
-  created: function () {
-    console.log(this.currentRoute, 'hello')
   }
 }).$mount('#app')
 

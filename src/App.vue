@@ -31,7 +31,7 @@ export default {
     }},[h(this.ViewComponents.default)])
   },
   created: function () {
-    console.log(this.currentRoute, this.ViewComponents)
+    console.log('created', this.ViewComponents)
   },
   updated () {
     console.log('updated', this.currentRoute)

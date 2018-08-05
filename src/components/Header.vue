@@ -22,7 +22,7 @@
             go (href, event) {
                 event.preventDefault()
                 this.$root.currentRoute = href
-                // window.history既能修改url又能不刷线页面
+                // window.history既能修改url又能不刷新页面
                 window.history.pushState(
                     null,
                     routes[href],
