@@ -1,7 +1,5 @@
 <script>
 import routes from './router/routes.js'
-import HelloWorld from './components/HelloWorld.vue'
-import HelloContent from './components/HelloContent.vue'
 
 export default {
   name: 'apps',

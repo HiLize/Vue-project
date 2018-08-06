@@ -7,7 +7,9 @@ new Vue({
     currentRoute: window.location.pathname
   },
   render (h) {
-    return (<App currentRoute={this.currentRoute}/>)
+    return h(App, {attrs: {
+      'currentRoute': this.currentRoute
+    }})
   }
 }).$mount('#app')
 

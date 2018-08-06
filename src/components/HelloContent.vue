@@ -26,8 +26,6 @@
                 for (var i = 0; i < files.length; i++) {
                     fd.append(`file[${i}]`,files[i]);
                 }
-
-                console.log(fd.getAll)
             }
         }
     }
